@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Khabib</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="px-6 md:px-24 py-10 space-y-20">
+  <!-- Header -->
+  <header class="flex justify-between items-center">
+    <div class="text-2xl font-bold">
+      <span>&lt;KH /&gt;</span>
+    </div>
+    <nav class="space-x-6 hidden md:block">
+      <a href="#about" class="nav-link hover:text-yellow-300 transition-colors duration-200">About</a>
+      <a href="#skills" class="nav-link hover:text-yellow-300 transition-colors duration-200">Skills</a>
+      <a href="#Experience" class="nav-link hover:text-yellow-300 transition-colors duration-200">Experience</a>
+      <a href="#work" class="nav-link hover:text-yellow-300 transition-colors duration-200">Work</a>
+      <a href="#contact" class="nav-link hover:text-yellow-300 transition-colors duration-200">Contact</a>
+    </nav>
+    
+    <script>
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 20, // Adjust offset as needed
+            behavior: 'smooth'
+          });
+          
+          // Update URL without jumping
+          history.pushState(null, null, targetId);
+        }
+      });
+    });
+    
+    // Scroll spy to highlight active section
+    window.addEventListener('scroll', () => {
+      const scrollPosition = window.scrollY + 100;
+      
+      document.querySelectorAll('section[id]').forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+        
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+          const id = section.getAttribute('id');
+          document.querySelectorAll('.nav-link').forEach(link => {
+            link.classList.toggle('text-yellow-400', link.getAttribute('href') === `#${id}`);
+            link.classList.toggle('font-semibold', link.getAttribute('href') === `#${id}`);
+          });
+        }
+      });
+    });
+    </script>
+    
+    <style>
+    .nav-link {
+      position: relative;
+      padding-bottom: 2px;
+    }
+    
+    .nav-link:hover::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #fbbf24; /* yellow-400 */
+      transform: scaleX(1);
+      transition: transform 0.3s ease;
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #fbbf24;
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+      transform-origin: right;
+    }
+    
+    .nav-link.text-yellow-400::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+    </style>
+    <button class="bg-white text-black rounded px-4 py-1 font-medium">Download CV</button>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="flex flex-col md:flex-row items-center justify-between">
+    <div class="max-w-xl">
+      <h1 class="text-4xl md:text-5xl font-extrabold mb-4">Hi, I'm <span class="highlight">Khabib</span> 👋</h1>
+      <p class="mb-4">As a Junior System Administrator, I primarily work on setting up and managing Linux- and Windows-based systems.
+        <p class="mb-4">I have fundamental knowledge in DevOps, Docker, frontend technologies, and cybersecurity.</p>
+        </p>
+      <p class="mb-4">I place a strong emphasis on automating IT infrastructure and ensuring system security.</p>
+      <!-- <div class="mb-2">
+        <span class="mr-2">📍 Baku, Azerbaijan</span>
+      </div> -->
+      <!-- <div class="text-green-400 font-medium mb-2">Available for new projects <div class="dot"><img src="green-dot.gif" alt=""></div></div> -->
+     <div class="space-x-4 text-xl">
+        <i class="fab fa-github"></i>
+        <i class="fab fa-twitter"></i>
+        <i class="fab fa-dribbble"></i>
+      </div>
+    </div>
+    <div class="image">
+    <div class="mt-10 md:mt-0 md:ml-10">
+      <img src="User Profile 3D Animated Icon.gif" alt="Sagar Photo" class="w-48 h-48 object-cover" />
+    </div>
+  </div>
+  </section>
+
+  <!-- About Section -->
+   <div id="about">
+  <section class="flex flex-col md:flex-row items-start justify-between bg-gray-800 p-8 rounded-xl">
+    <div class="md:w-1/2 mb-8 md:mb-0">
+      <img src="User Profile 3D Animated Icon.gif" alt="Outdoor Photo" class="rounded shadow-xl" />
+    </div>
+    <div class="md:w-1/2 md:pl-10">
+      <button class="bg-gray-700 text-white px-4 py-1 rounded-full text-sm mb-4">About me</button>
+      <h2 class="text-2xl font-bold mb-6">Curious about me? Here you have it:</h2>
+      
+      <p class="mb-4 leading-relaxed">
+        I'm a <span class="text-yellow-300 font-medium">Junior System Administrator</span> specializing in Linux and Windows server deployment, configuration, and optimization. My expertise spans DevOps practices, automation, and CI/CD pipelines, with hands-on experience in Docker containerization for streamlined deployments.
+      </p>
+    
+      <p class="mb-4 leading-relaxed">
+        Security is at the core of my work - I focus on system hardening and implementing robust security measures to protect infrastructure. To complement my backend skills, I actively explore frontend technologies for a comprehensive understanding of modern systems.
+      </p>
+    
+      <p class="mb-4 leading-relaxed">
+        Driven by efficiency, I'm passionate about infrastructure automation to create <span class="text-yellow-300">secure, scalable systems</span> that minimize manual processes. My professional journey is focused on continuous growth as a versatile IT specialist who delivers impactful solutions.
+      </p>
+    
+      <p class="mt-6 text-lg">
+        Let's connect and discuss technology, security, or exciting opportunities! 🚀
+      </p>
+    </div>
+  </section>
+</div>
+  <!-- Skills Section -->
+   <div id="skills">
+  <section class="text-center">
+    <button class="bg-gray-700 text-white px-4 py-1 rounded-full text-sm mb-4">Skills</button>
+    <h2 class="text-xl font-semibold mb-6">The skills, tools and technologies I am really good at:</h2>
+    <div class="grid grid-cols-4 md:grid-cols-8 gap-6 justify-center">
+      <div><img src="icons8-windows-48.png" alt="Windows"></div>
+      <div><img src="icons8-linux-96.png" alt="Linux"></div>
+      <div><img src="icons8-server-windows-96.png" alt="Windows Server"></div>
+      <div><img src="icons8-docker-96.png" alt="Docker"></div>
+      <div><img src="icons8-nginx-96.png" alt="Nginx"></div>
+      <div style="margin-top: 15%; width: 120%;"><img src="apache.png" alt="Apache"></div>
+      <div style="margin-left: 20%;"><img src="icons8-azure-96.png" alt="Microsoft Azure"></div>
+      <div style="width: 80%; margin-top: 15%;"><img src="logo.webp" alt="ERP Logo Tiger 3" ></div>
+      <div><img src="icons8-figma-96.png" alt="Figma"></div>
+      <div><img src="icons8-cybersecurity-96.png" alt="Cybersecurity"></div>
+    </div>
+  </section>
+</div>
+  <!-- Experience Section -->
+   <div id="Experience">
+  <section class="text-center">
+    <button class="bg-gray-700 text-white px-4 py-1 rounded-full text-sm mb-4">Experience</button>
+    <h2 class="mb-6">Here is a quick summary of my most recent experiences:</h2>
+    <div class="space-y-6">
+      <div class="bg-gray-700 p-6 rounded-xl text-left max-w-4xl mx-auto">
+        <div class="flex justify-between items-center mb-2">
+          <span class="text-green-400 font-semibold">Mazarina LLC</span>
+          <span>Oct 2024 - Present</span>
+        </div>
+        <h3 class="text-lg font-bold mb-2">Junior System Admin</h3>
+        <ul class="list-disc list-inside space-y-1">
+          <li><b>MikroTik & DHCP Server:</b> Configured and maintained MikroTik routers, implementing DHCP servers for dynamic IP allocation, VLAN segmentation, and firewall rules to optimize network performance and security.</li>
+          <li><b>ERP LOGO Tiger 3:</b> Assisted in deploying and managing LOGO Tiger 3 ERP solutions, including user access control, database maintenance, and troubleshooting system issues to support business operations.</li>
+          <li><b>RADIUS Server:</b> Set up and managed RADIUS authentication for secure network access, integrating with VPNs and Wi-Fi systems to enforce user authentication policies.</li>
+        </ul>
+      </div>
+      <div class="bg-gray-700 p-6 rounded-xl text-left max-w-4xl mx-auto">
+        <div class="flex justify-between items-center mb-2">
+          <span class="text-green-400 font-semibold">AzEduNet LLC</span>
+          <span>May 2024 - Aug 2024</span>
+        </div>
+        <h3 class="text-lg font-bold mb-2">Team Lead</h3>
+        <ul class="list-disc list-inside space-y-1">
+          <li><b>Network Troubleshooting:</b> Diagnosed and resolved switch loop problems using STP and proper VLAN configurations to prevent broadcast storms and network downtime..</li>
+          <li><b>DVR/NVR & Printer Management:</b> Installed, configured, and maintained DVR/NVR systems for surveillance, ensuring proper IP camera integration and storage optimization. Managed network printers, troubleshooting connectivity issues and driver deployments.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</div>
+  <!-- Work Section -->
+   <div id="work">
+  <section class="text-center">
+    <button class="bg-gray-700 text-white px-4 py-1 rounded-full text-sm mb-4">Work</button>
+    <h2 class="mb-10">Some of the noteworthy projects I have built:</h2>
+    <div class="space-y-10 max-w-5xl mx-auto">
+      
+        <div class="grid md:grid-cols-2 gap-4 bg-gray-800 p-6 rounded-xl items-center">
+        <img style="width: 100%;" src="test1.png" alt="Project Screenshot" class="rounded shadow" />
+        <div class="text-left">
+          <h3 class="text-xl font-bold mb-2">NewUser</h3>
+          <p class="mb-3">Create user and add Ssh key with permissions</p>
+          <p><a href="https://github.com/Khabibshv7/LinuxUser.git"><img src="icons8-github-32.png" alt=""></a></p>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-4 bg-gray-800 p-6 rounded-xl items-center">
+        <div class="text-left">
+          <h3 class="text-xl font-bold mb-2">ADDS User Creation</h3>
+          <p class="mb-3">Automatic user account creation in Active Directory using PowerShell + sending the password via SMTP</p>
+          <a href="https://github.com/Khabibshv7/User.git"><img src="icons8-github-32.png" alt=""></a>
+        </div>
+        <img style="width: 80%; height: 70;" src="test2.png" alt="Project Screenshot" class="rounded shadow" />
+      </div>
+    </div>
+  </section>
+</div>
+  <!-- Contact Section -->
+   <div id="contact">
+  <section class="text-center py-12 px-4 bg-gradient-to-b from-gray-900 to-gray-800">
+    <!-- Animated CTA Button -->
+    <!-- HTML -->
+<button 
+id="goToTopBtn"
+class="fixed bottom-8 right-8 bg-gradient-to-r from-yellow-400 to-yellow-600 text-gray-900 px-6 py-3 rounded-full text-sm font-bold hover:shadow-lg hover:shadow-yellow-500/30 transition-all duration-300 transform hover:scale-105 opacity-0 invisible transition-opacity duration-500 z-50"
+aria-label="Go to top"
+>
+<b>↑</b> Get In Touch
+</button>
+
+<!-- JavaScript -->
+<script>
+const goToTopBtn = document.getElementById('goToTopBtn');
+
+// Show/hide button based on scroll position
+window.addEventListener('scroll', () => {
+  if (window.pageYOffset > 300) {
+    goToTopBtn.classList.remove('opacity-0', 'invisible');
+    goToTopBtn.classList.add('opacity-100', 'visible');
+  } else {
+    goToTopBtn.classList.add('opacity-0', 'invisible');
+    goToTopBtn.classList.remove('opacity-100', 'visible');
+  }
+});
+
+// Smooth scroll to top
+goToTopBtn.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
+</script>
+    
+    <!-- Section Heading with Animation -->
+    <h2 class="text-2xl md:text-3xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-white to-yellow-300">
+        Let's Build Something Amazing Together
+        <span class="inline-block ml-2 animate-wiggle"></span>
+    </h2>
+    
+    <!-- Contact Card with Hover Effect -->
+    <div class="max-w-lg mx-auto bg-gray-800 p-8 rounded-xl border border-gray-700 hover:border-yellow-400 transition-all duration-300 shadow-xl hover:shadow-yellow-500/10">
+        <div class="space-y-5">
+            <!-- Email with Copy Functionality -->
+            <div class="flex items-center group">
+                <div class="mr-4 p-2 bg-gray-700 rounded-lg group-hover:bg-yellow-500 transition-colors">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                    </svg>
+                </div>
+                <div class="text-left">
+                    <p class="text-sm text-gray-400">Email me at</p>
+                    <a href="mailto:khabibshv@gmail.com" class="text-lg font-medium hover:text-yellow-400 transition-colors flex items-center">
+                        khabibshv@gmail.com
+                        <button class="ml-2 copy-btn hidden group-hover:block" data-clipboard-text="reachsagarshah@gmail.com">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path>
+                            </svg>
+                        </button>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Phone with Click-to-Call -->
+            <div class="flex items-center group">
+                <div class="mr-4 p-2 bg-gray-700 rounded-lg group-hover:bg-yellow-500 transition-colors">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                    </svg>
+                </div>
+                <div class="text-left">
+                    <p class="text-sm text-gray-400">Call me at</p>
+                    <a href="tel:+994507215126" class="text-lg font-medium hover:text-yellow-400 transition-colors">+99450721****</a>
+                </div>
+            </div>
+
+            <!-- Calendly Booking Integration -->
+            <div class="pt-4">
+                <a href="https://calendly.com/khabibshv" target="_blank" class="inline-flex items-center px-4 py-2 border border-yellow-400 text-yellow-400 rounded-lg hover:bg-yellow-400 hover:text-gray-900 transition-colors">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                    </svg>
+                    Schedule a Meeting
+                </a>
+            </div>
+        </div>
+    </div>
+  </div>
+    <!-- Social Links with Tooltips -->
+<div class="mt-12 mb-6 text-center">
+  <p class="text-gray-400">Connect with me on</p>
+  <div class="flex justify-center space-x-8 mt-4">
+    <a href="https://github.com/Khabibshv7" target="_blank" class="social-icon group" aria-label="GitHub">
+      <div class="icon-container bg-gray-700 group-hover:bg-white transition-colors">
+        <img src="icons8-github-32.png" alt="">
+      </div>
+      <span class="tooltip">GitHub</span>
+    </a>
+    <a href="https://www.linkedin.com/in/khabib-shahverdiyev-1b36852b5/" target="_blank" class="social-icon group" aria-label="LinkedIn">
+      <div class="icon-container bg-gray-700 group-hover:bg-blue-600 transition-colors">
+        <img src="icons8-linkedin-32.png" alt="">
+      </div>
+      <span class="tooltip">LinkedIn</span>
+    </a>
+    <a href="https://www.instagram.com/khabibshv" target="_blank" class="social-icon group" aria-label="Instagram">
+      <div class="icon-container bg-gray-700 group-hover:bg-gradient-to-r from-purple-500 to-pink-500 transition-colors">
+        <img src="icons8-instagram-32.png" alt="">
+      </div>
+      <span class="tooltip">Instagram</span>
+    </a>
+  </div>
+</div>
+
+<!-- Signature -->
+<div class="mt-12 pt-6 border-t border-gray-700 text-center">
+  <p class="text-gray-500 text-sm">
+    © <span id="currentYear"></span> Khabib. All rights reserved.
+  </p>
+</div>
+
+<script>
+  // Automatically update copyright year
+  document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+  // Clipboard.js implementation
+  document.addEventListener('DOMContentLoaded', function () {
+    const copyBtns = document.querySelectorAll('.copy-btn');
+    copyBtns.forEach(btn => {
+      btn.addEventListener('click', function () {
+        const text = this.getAttribute('data-clipboard-text');
+        navigator.clipboard.writeText(text).then(() => {
+          const originalHTML = this.innerHTML;
+          this.innerHTML = 'Copied!';
+          setTimeout(() => {
+            this.innerHTML = originalHTML;
+          }, 2000);
+        });
+      });
+    });
+  });
+</script>
+
+<style>
+  .animate-wiggle {
+    animation: wiggle 2.5s infinite;
+  }
+
+  @keyframes wiggle {
+    0%, 100% {
+      transform: rotate(-10deg);
+    }
+
+    50% {
+      transform: rotate(10deg);
+    }
+  }
+
+  .social-icon {
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+
+  .icon-container {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+  }
+
+  .tooltip {
+    position: absolute;
+    top: 100%;
+    margin-top: 8px;
+    padding: 4px 8px;
+    background: #1F2937;
+    color: white;
+    border-radius: 4px;
+    font-size: 12px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    white-space: nowrap;
+  }
+
+  .social-icon:hover .tooltip {
+    opacity: 1;
+  }
+</style>
+
+
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+body {
+  background-color: #0f172a;
+  color: #e2e8f0;
+  font-family: 'Segoe UI', sans-serif;
+}
+.profile-img {
+  border-radius: 0.5rem;
+  box-shadow: 4px 4px 0 #475569;
+}
+.highlight {
+  color: #facc15;
+}
+.testimonial-card {
+  background-color: #1e293b;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+}
+.testimonial-quote {
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+.testimonial-author {
+  font-weight: bold;
+}
+.testimonial-position {
+  color: #94a3b8;
+  font-size: 0.875rem;
+}
+.dot{
+  width: 30px;
+  height: 30px;
+}
+.image{
+width: 25%;
+}
